@@ -22,3 +22,5 @@ git支持多种协议：http,ssh等ssh速度最快
 	等价于：git branch dev 
 	              git checkout dev
 git branch:查看当前分支
+
+合并分支：需要先切换到主分支，然后执行git merge dev命令
