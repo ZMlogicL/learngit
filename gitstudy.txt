@@ -21,4 +21,4 @@ git支持多种协议：http,ssh等ssh速度最快
 	git创建分支命令：git checkout -b dev  -b参数表示创建并切换到分支
 	等价于：git branch dev 
 	              git checkout dev
-
+git branch:查看当前分支
