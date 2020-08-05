@@ -15,3 +15,7 @@ git remote add origin git@github.com:ZMlogicL/lerangit.git：将本地仓库和�
 从远程库克隆版本库到本地：git clone git@github.com ZMlogicL/learngit.git
 
 git支持多种协议：http,ssh等ssh速度最快
+
+
+2:git的分支管理。
+	
