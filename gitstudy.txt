@@ -24,3 +24,15 @@ git支持多种协议：http,ssh等ssh速度最快
 git branch:查看当前分支
 
 合并分支：需要先切换到主分支，然后执行git merge dev命令
+
+git 更新远程分之到本地
+　   １查看远程仓库
+    	git remote -v
+    ２从远程获取最新版本到本地
+    	git fetch origin aaa
+    ３比较远程分支和本地分支
+     	git log -p aaa origin/aaa
+    ４合并远程分支到本地
+    	git merge origin/aaa
+
+　　　git pull origin 分之名
