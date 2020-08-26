@@ -1,0 +1,69 @@
+shell 命令学习
+1	#!　约定的标记，告诉系统使用什么解释器来执行当前脚本。
+
+2　  执行脚本的两种方式
+　　		先给文件赋予权限，然后执行脚本，注意是./+文件，直接文件名系统会道PATH里面寻找。
+			chmod +x ./test.sh  #使脚本具有执行权限
+			./test.h
+		直接执行，/bin/sh test.sh,即直接运行解释器。
+
+
+3　shell 变量
+	变量与等号之间不能有空格。
+	变量命名规则：	
+		命名只能使用英文字母，数字和下划线，首个字符不能以数字开头。
+		中间不能有空格，可以使用下划线（_）。
+		不能使用标点符号。
+		不能使用bash里的关键字（可用help命令查看保留关键字）。
+	使用变量
+		在定义过的变量前面加上$可以使用该变量
+		如：　your_name = 'niuren'
+			  echo $your_name
+			  或者echo ${your_name} {}可选。
+	加花括号是为了帮助解释器识别变量的边界，比如下面这种情况：
+	for skill in Ada Coffe Action Java; do
+    	echo "I am good at ${skill}Script"
+	done
+
+	只读变量：
+	使用关键字：readonly
+	如：　readonly my_name = "tom"
+
+	删除变量:删除之后不能再使用该变量
+	语法：unset 变量名
+
+	变量类型：
+		1) 局部变量 局部变量在脚本或命令中定义，仅在当前shell实例中有效，其他shell启动的程序不能访问局部变量。
+    	2) 环境变量 所有的程序，包括shell启动的程序，都能访问环境变量，有些程序需要环境变量来保证其正常运行。必要的时候shell脚本也可以定义环境变量。
+    	3) shell变量 shell变量是由shell程序设置的特殊变量。shell变量中有一部分是环境变量，有一部分是局部变量，这些变量保证了shell的正常运行 
+
+4　shell 字符串
+	单引号和双引号都可以，也可以不用引号。
+    单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的；
+    单引号字串中不能出现单独一个的单引号（对单引号使用转义符后也不行），但可成对出现，作为字符串拼接使用。
+	
+    双引号里可以有变量
+    双引号里可以出现转义字符
+
+	拼接字符串
+		your_name="runoob"
+		# 使用双引号拼接
+		greeting="hello, "$your_name" !"
+		greeting_1="hello, ${your_name} !"
+		echo $greeting  $greeting_1
+		# 使用单引号拼接
+		greeting_2='hello, '$your_name' !'
+		greeting_3='hello, ${your_name} !'
+		echo $greeting_2  $greeting_3
+
+	# 获取字符串长度
+		echo ${#my_name}
+
+	# 提取子字符串，字符串索引从0开始
+	echo ${my_name:2:8}
+
+	# 查找子字符出现的位置
+	echo `expr index "$my_name" b`
+
+
+
